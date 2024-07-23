@@ -36,10 +36,10 @@
 
 // Select camera model
 //#define CAMERA_MODEL_WROVER_KIT
-#define CAMERA_MODEL_ESP_EYE
+//#define CAMERA_MODEL_ESP_EYE
 //#define CAMERA_MODEL_M5STACK_PSRAM
 //#define CAMERA_MODEL_M5STACK_WIDE
-//#define CAMERA_MODEL_AI_THINKER
+#define CAMERA_MODEL_AI_THINKER
 
 #include "camera_pins.h"
 
@@ -77,7 +77,7 @@ SemaphoreHandle_t camSync = NULL ;
 QueueHandle_t streamingClients;
 
 // We will try to achieve 25 FPS frame rate
-const int FPS = 14;
+const int FPS = 25;
 
 // We will handle web client requests every 50 ms (20 Hz)
 const int WSINTERVAL = 100;
@@ -429,9 +429,9 @@ void setup()
 
   // Frame parameters: pick one
   //  config.frame_size = FRAMESIZE_UXGA;
-  //  config.frame_size = FRAMESIZE_SVGA;
+  config.frame_size = FRAMESIZE_SVGA;
   //  config.frame_size = FRAMESIZE_QVGA;
-  config.frame_size = FRAMESIZE_VGA;
+  //  config.frame_size = FRAMESIZE_VGA;
   config.jpeg_quality = 12;
   config.fb_count = 2;
 
